@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>TODO supply a title</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="src/js/script.js"></script>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			}
+			.calendar-block {
+				width: 202px;
+				float: left;
+			}
+			.time-block {
+				width: 400px;
+				float: left;
+				padding: 10px;
+			}
+
+			.calendar-block table {
+			  border-collapse: collapse;
+			}
+			
+			.calendar-block th, .calendar-block td {
+			  border: 1px solid black;
+			  padding: 5px;
+			  text-align: center;
+			  position: relative;
+			}
+			.calendar-block td {
+				transition: all 0.2s;
+				cursor: pointer;
+			}
+			
+			.calendar-block td.free {
+				color: rgb(23, 77, 52);	
+				
+			}
+			.calendar-block td.close {
+				color: rgb(235, 36, 36);	
+			}
+			.calendar-block td.disabled {
+				background: #ddd;
+				color: #aaa;
+			}
+			.calendar-block td.current-day {
+				background: rgb(137, 240, 192);	
+				color: #000;
+			}
+
+			.calendar-block td > span {
+				position: relative;
+			}
+			.calendar-block td.free:hover span {
+				background: rgb(18, 85, 54);
+				color: #fff;
+				transform: scale(1.2);
+				position: absolute;
+				top: 0;
+				left: 0;
+				border-radius: 5px;
+				padding: 5px;
+				width: 100%;
+			}
+			.calendar-block th {
+			  font-weight: bold;
+			  background-color: #E6E6E6;
+			}
+			.calendar-block .tool-month {
+				display: block;
+				position: relative;
+			}
+			.tool-month:before, .tool-month:after {
+				
+				content: '';
+				display: table;
+				clear: both;
+			}
+			.tool-month > * {
+				float: left;
+				position: relative;
+				font-size: 14px;
+				padding: 5px 2px;
+			}
+			.tool-month > div:before, .tool-month > div:after {
+				content: '';
+				display: table;
+				clear: both;
+			}
+			.tool-month .left-button, .tool-month .right-button {
+				width: 25%;
+				cursor: pointer;
+			}
+			.tool-month .name-month {
+				width: 50%;
+				text-align: center;
+			}
+			.button-time {
+				display: inline-block;
+				position: relative;
+				padding: 5px 12px;
+				border-radius: 5px;
+				margin: 2px;
+				border: 1px solid #999;
+			}
+			.button-time:hover {
+				background: #fafafa;
+			}
+			.main-block:before, .main-block:after {
+				content: '';
+				clear: both;
+				display: table;
+			}
+		  </style>
+	</head>
+	<body>
+		<div class="main-block" id="calendarWrapper">
+			<div class="calendar-block">
+				<div class="tool-month">
+					<div class="left-button" data-action="prevMonth">Левее</div>
+					<div class="name-month"></div>
+					<div class="right-button" data-action="nextMonth">Правее</div>
+				</div>
+				<div id="calendar"></div>
+			</div>
+			<div class="time-block">
+				
+			</div>
+		</div>
+	</body>
+</html>
